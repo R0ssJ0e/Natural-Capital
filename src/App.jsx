@@ -468,7 +468,7 @@ function Contact() {
             <div>
               <dt className="mono text-[11px] text-[#a5e1d0]/80">Email</dt>
               <dd className="mt-2 text-[17px] text-[#f8faf7]">
-                halo@naturalcapital.asia
+                halo@naturalcapitalasia.com
               </dd>
             </div>
             <div>
