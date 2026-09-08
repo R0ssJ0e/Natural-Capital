@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+:root {
+  /* Palette found in the subject's world: flooded subak terraces at dawn,
+     Sudirman tower glass, batik gold. */
+  --ink: #052e23; /* deep forest, near-black ground */
+  --ink-2: #0a3f30; /* raised forest */
+  --terrace: #10b981; /* lead accent, wet terrace green */
+  --terrace-deep: #065f46; /* shadowed paddy */
+  --glass: #8fd4c1; /* Jakarta tower glass */
+  --gold: #d97706; /* sunrise / batik */
+  --gold-light: #f0b13f;
+  --slate: #1e293b;
+  --paper: #f8faf7; /* warm white, tinted green */
+  --paper-2: #eef4ef;
+  --clickup: #7c3aed;
+  --clickup-deep: #4c1d95;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  background: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.display {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* --- Signature motion: sunlight travelling across flooded terraces --- */
+@keyframes sheen {
+  0% {
+    transform: translateX(-40%);
+  }
+  100% {
+    transform: translateX(140%);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(-6px) scaleY(1.012);
+  }
+}
+
+@keyframes gleam {
+  0%,
+  82%,
+  100% {
+    opacity: 0;
+  }
+  88% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-sheen {
+  animation: sheen 13s linear infinite;
+}
+.animate-drift {
+  animation: drift 16s ease-in-out infinite;
+}
+.animate-gleam {
+  animation: gleam 9s ease-in-out infinite;
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Terrace step boundary between sections: the land itself is the divider. */
+.terrace-edge {
+  position: relative;
+}
+
+/* Survey-drawing grid, faint */
+.survey-grid {
+  background-image: linear-gradient(
+      to right,
+      rgba(16, 185, 129, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.survey-grid-dark {
+  background-image: linear-gradient(
+      to right,
+      rgba(5, 46, 35, 0.032) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(5, 46, 35, 0.032) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--terrace);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-sheen,
+  .animate-drift,
+  .animate-gleam,
+  .rise {
+    animation: none;
+  }
+}

@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The ClickUp artifact harness scrolled an inner #root container.
+   A standalone site should scroll the document instead. */
+html,
+body {
+  margin: 0;
+  background: #04231b;
+}
